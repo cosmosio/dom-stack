@@ -32,7 +32,10 @@
     "test": "jasmine-node test/"
   },
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-node": "~1.14.3",
+    "quick-dom": "0.0.1"
+  },
   "dependencies": {
     "to-array": "~0.1.4"
   }
