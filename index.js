@@ -45,7 +45,7 @@ module.exports = function StackConstructor($parent) {
 	 * @returns {HTMLElement} dom
 	 */
 	this.add = function add(dom) {
-		if (!this.has(dom) && dom instanceof HTMLElement) {
+		if (!this.has(dom)) {
 			_parent.appendChild(dom);
 			_childNodes.push(dom);
 			return dom;
@@ -77,16 +77,12 @@ module.exports = function StackConstructor($parent) {
 	 * @returns {HTMLElement} newParentDom
 	 */
 	this.place = function place(newParentDom) {
-		if (newParentDom instanceof HTMLElement) {
-			[].slice.call(_parent.childNodes).forEach(function (childDom) {
-				if (this.has(childDom)) {
-					newParentDom.appendChild(childDom);
-				}
-			}, this);
-			return this._setParent(newParentDom);
-		} else {
-			return false;
-		}
+		[].slice.call(_parent.childNodes).forEach(function (childDom) {
+			if (this.has(childDom)) {
+				newParentDom.appendChild(childDom);
+			}
+		}, this);
+		return this._setParent(newParentDom);
 	};
 
 	/**
@@ -163,7 +159,7 @@ module.exports = function StackConstructor($parent) {
 	 * @returns {HTMLElement} dom
 	 */
 	this.insert = function insert(dom, position) {
-		if (!this.has(dom) && dom instanceof HTMLElement) {
+		if (!this.has(dom)) {
 			_childNodes.splice(position, 0, dom);
 			_parent.insertBefore(dom, _parent.childNodes[position]);
 			return dom;
@@ -246,8 +242,8 @@ module.exports = function StackConstructor($parent) {
 	 * Get the parent node that a stack is currently attached to
 	 * @returns {HTMLElement} parent node
 	 */
-	this.getParent = function _getParent() {
-			return _parent;
+	this.getParent = function getParent() {
+		return _parent;
 	};
 
 	/**
@@ -255,13 +251,9 @@ module.exports = function StackConstructor($parent) {
 	 * @private
 	 */
 	this._setParent = function _setParent(parent) {
-		if (parent instanceof HTMLElement) {
-			_parent = parent;
-			return _parent;
-		} else {
-			return false;
-		}
-	};
+		_parent = parent;
+		return _parent;
+    };
 
 	/**
 	 * Get the place where the DOM elements are hidden
@@ -276,12 +268,7 @@ module.exports = function StackConstructor($parent) {
 	 * @private
 	 */
 	this.setHidePlace = function setHidePlace(hidePlace) {
-		if (hidePlace instanceof HTMLElement) {
-			_hidePlace = hidePlace;
-			return true;
-		} else {
-			return false;
-		}
+		_hidePlace = hidePlace;
 	};
 
 	/**
@@ -310,6 +297,8 @@ module.exports = function StackConstructor($parent) {
 		}
 	};
 
-	this._setParent($parent);
+    if ($parent) {
+	    this._setParent($parent);
+    }
 
 };

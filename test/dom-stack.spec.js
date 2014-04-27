@@ -7,8 +7,6 @@
 */
 require("quick-dom");
 
-GLOBAL.HTMLElement = document.body.constructor;
-
 var Stack = require("../index");
 
 describe("Stack Init", function () {
@@ -26,14 +24,13 @@ describe("Stack Init", function () {
     });
 
     it("should have a function to set the Parent element", function () {
-        expect(stack._setParent({})).toBe(false);
         expect(stack._setParent(parentDom)).toBe(parentDom);
 
         expect(stack.getParent()).toBe(parentDom);
     });
 
     it("should have a function to get the parent element", function () {
-        expect(stack.getParent().nodeName).toBe("#document-fragment");
+        expect(stack.getParent().nodeType).toBe(11);
     });
 
     it("can be initialised with a parent element", function () {
@@ -87,7 +84,6 @@ describe("Stack API", function () {
     it("should have a function for appending the stack to a parent DOM element", function () {
         var newPlace = document.createElement("div");
 
-        expect(stack.place({})).toBe(false);
         expect(stack.place(newPlace)).toBe(newPlace);
 
         expect(stack.getParent()).toBe(newPlace);
