@@ -1,0 +1,40 @@
+{
+  "name": "dom-stack",
+  "description": "Create a stack of DOM elements. You can hide/show the elements, transit between them, or move them all together.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cosmosio/dom-stack",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/cosmosio/dom-stack/master/LICENSE"
+    }
+  ],
+  "files": [
+    "LICENSE",
+    "index.js"
+  ],
+  "author": "Olivier Scherrer <pode.fr@gmail.com>",
+  "keywords": [
+    "dom",
+    "stack",
+    "hide",
+    "show",
+    "transit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cosmosio/dom-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cosmosio/dom-stack/issues"
+  },
+  "scripts": {
+    "test": "jasmine-node test/"
+  },
+  "main": "index.js",
+  "devDependencies": {
+  },
+  "dependencies": {
+
+  }
+}
