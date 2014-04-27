@@ -91,7 +91,41 @@ stack.getPosition(dom5); // 3
 stack.count(); // 5
 ```
 
+###Hiding/showing elements
 
+You can hide/show dom elements. The elements are not actually hidden, but totally removed from the DOM for performance reason.
+
+```js
+stack.hide(dom4); // will hide dom4 by removing it from the dom.
+```
+
+When showing the element, it will be added back to the dom:
+
+```js
+stack.show(dom4);
+```
+
+There's a short cut for hiding/showing them all:
+
+```js
+stack.hideAll();
+stack.showAll();
+```
+
+##Transit to a dom element
+
+If you hide all elements but then show just one of them:
+
+```js
+stack.hideAll();
+stack.show(dom1);
+```
+
+You can then transit to another dom element, which will hide the previous one and show the new one:
+
+```js
+stack.transit(dom2); // will hide dom1 and show dom2
+```
 
 
 LICENSE
