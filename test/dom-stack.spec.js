@@ -186,7 +186,6 @@ describe("Stack API", function () {
     it("should have a function for telling if a DOM element is in the stack", function () {
         var dom = document.createElement("p");
 
-        expect(stack.has).toBeInstanceOf(Function);
         stack.add(dom);
         expect(stack.has(dom)).toBe(true);
     });

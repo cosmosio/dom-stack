@@ -145,7 +145,7 @@ module.exports = function StackConstructor($parent) {
 			return;
 		}
 		var nextElement = _childNodes[position];
-		if (Tools.toArray(_parent.childNodes).indexOf(nextElement) == -1) {
+		if (toArray(_parent.childNodes).indexOf(nextElement) == -1) {
 			return getNextElementInDom(position +1);
 		} else {
 			return nextElement;
